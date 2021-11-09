@@ -21,7 +21,7 @@ import {SearchImgs} from './src/Screens/Search-Imgs';
 export default function App ({route,navigation}) {
   //var Drawer = createDrawerNavigator();
   var Stack = createNativeStackNavigator();
-  const [login,setLogin]=useState(false);
+  const [login,setLogin]=useState(true);
 
   return (
     <NavigationContainer>
@@ -31,10 +31,10 @@ export default function App ({route,navigation}) {
       headerShown: false
     }}>
           <Stack.Screen name="Login" component={Login} screenOptions={{}} options={{
-    transitionSpec: {
-      open: config,
-      close: config,
-    },
+    //transitionSpec: {
+     // open: config,
+      //close: config,
+    //},
   }} />
           <Stack.Screen name="Home" component={Home} options={{gestureEnabled:false}} />
           <Stack.Screen name="myPics" component={myPics} options={{title:"Mis Fotos"}}/>
