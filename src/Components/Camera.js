@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 
-export default function Camera ()  {
+export default function Camera (){
     const imgs=[];
     const [source,setSource]=useState(null)
 
@@ -64,6 +64,7 @@ const styles=StyleSheet.create({
         height:46,
         backgroundColor:'#0096c7',
         borderRadius:20,
+        top:-60
 
     },
     img:{
@@ -84,7 +85,7 @@ const styles=StyleSheet.create({
         alignSelf:'center',
         justifyContent:'center',
         alignItems:'center',
-        bottom:400,
+        bottom:450,
         //left:"50%"
 
     }

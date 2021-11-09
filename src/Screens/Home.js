@@ -14,7 +14,8 @@ import {
 import {styles} from './Styles/Home-Style';
 
 export function Home({route,navigation}) {
-    const {email}=route.params;
+    //const {email}=route.params;
+    const {email}="valenbia"
     const fadeAnim = useRef(new Animated.Value(0)).current
     useEffect(()=>{
         Animated.timing(fadeAnim,{

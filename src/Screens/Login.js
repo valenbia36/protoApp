@@ -40,7 +40,7 @@ import {styles} from './Styles/Login-Style';
                     />
             </View>
         <TouchableOpacity>
-          <Text style={styles.signUpText} >Signup</Text>
+          <Text style={styles.signUpText}>Sign up</Text>
         </TouchableOpacity>
          
           <TouchableOpacity style={styles.loginBtn}  onPress={()=>{setLogin(true);navigation.navigate("Home",{email:text,login:true});console.log(text)}} disabled={login || disable} activeOpacity={disable?0:1} >
