@@ -11,9 +11,12 @@ import {
     TextInput,
     TouchableOpacity,
     FlatList,
+    ScrollView,
+    Image
 } from 'react-native';
 import {styles} from './Styles/Search-Style';
 import SelectDropdown from 'react-native-select-dropdown';
+import Item from "./Item";
 
 
 
@@ -23,20 +26,13 @@ export  function Search({route,navigation}){
 
     const [text, onChangeText]=useState("")
     const [data_filtrada,setDataFiltrada]=useState([]);
-    const criterio=["Apellido","Barrio"]
+    const criterio=["Apellido","Barrio","Partido","Provincia"]
     const [criterioElegido,setCriterio]=useState("");
     const obtener=async()=> {
-        const data= await fetch('http://modulo-backoffice.herokuapp.com/families/x-test-obtain-families').then(response => response.json());
-        console.log(criterioElegido,text);
-        if(criterioElegido=="Apellido"){
-            setDataFiltrada(data.results.filter((item)=>item.apellido==text));}
-        else if(criterioElegido=="Barrio"){
-            setDataFiltrada(data.results.filter((item)=>(item.encuestaUno.direccion.barrio)==text));}
-    };
-
-
-
-
+        const data= await fetch('https://modulo-backoffice.herokuapp.com/families/x-test-obtain-families?'+criterioElegido.toLowerCase()+"="+text).then(response => response.json());
+        setDataFiltrada(data.results);
+        console.log(data_filtrada);
+    }
 
     return(
         <View style={styles.container}>
@@ -63,18 +59,35 @@ export  function Search({route,navigation}){
             </View>
 
             <View style={styles.sumbitContainer}>
-                <TouchableOpacity style={styles.submit}  >
-                    <Text style={styles.sumbitText} onPress={obtener}>Buscar</Text>
+                <TouchableOpacity style={styles.submit} disabled={criterioElegido==""?true:false} onPress={obtener} >
+                    <Text style={styles.sumbitText} >Buscar</Text>
                 </TouchableOpacity>
             </View>
 
-          <View style={styles.listContainer}>
-              <FlatList keyExtractor={item => item._id} data={data_filtrada} renderItem={({item})=>(
-                  <Text>{item.apellido},{item._id}</Text>
-              )}/>
-          </View>
+          {//<View style={styles.listContainer}>
+}
+    
+                <FlatList style={{flex:1,top:250}}
+                    data={data_filtrada}
+                    renderItem={({ item }) => (
+                        <View>
+                        <Item name={item.apellido} estado={item.estado} barrio={item.encuestaUno.direccion.barrio} partido={item.encuestaUno.direccion.partido} provincia={item.encuestaUno.direccion.provincia} nav={navigation}>
+                        </Item>
+                        <TouchableOpacity style={styles.ButtonImg} onPress={()=>navigation.navigate("myPics",{id:item._id,ape:item.apellido})}>
+                            <Image source={require('../camera.png')} style={styles.img}>
+                            </Image>
+                        </TouchableOpacity>
+                        </View>
+
+                    )}
+                    keyExtractor={data_filtrada._id}
+                />
+                
+          {//</View>
+}
 
         </View>
+
 
 
 

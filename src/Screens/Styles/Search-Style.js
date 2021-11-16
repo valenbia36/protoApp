@@ -20,19 +20,19 @@ export const styles = StyleSheet.create({
         marginBottom:20,
         justifyContent:"center",
         padding:20,
-        top:"30%"
+        top:"20%"
       },
       inputText:{
         height:50,
         color:"white"
       },
       titulo:{
-          top:"20%",
+          top:"10%",
           fontSize:14,
           fontWeight:"900"
       },
       sumbitContainer:{
-        top:'-5%',
+        top:'-10%',
 
 
       },
@@ -53,18 +53,31 @@ export const styles = StyleSheet.create({
         justifyContent:"center",
         textAlign:'center',
         textAlignVertical:'center',
-        top:350,
+        top:300,
         fontSize:17
-      },
-      listContainer:{
-        position:'absolute',
-        top:500
       },
       pickerCont:{
         position:'absolute',
         alignContent:'center',
         justifyContent:'center',
         alignSelf:'center',
-        top:"45%",
-      }
+        top:"35%",
+      },
+      ButtonImg:{
+        alignSelf:'center',
+        justifyContent:'center',
+        alignItems:'center',
+        width:30,
+        height:30,
+        bottom:65,
+        right:"-40%",
+        borderRadius:5,
+        backgroundColor:'white'
+
+    },
+    img:{
+        width:30,
+        height:30,
+
+    }
 })

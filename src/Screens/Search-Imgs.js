@@ -24,14 +24,12 @@ export  function SearchImgs({route,navigation}){
 
     return(
         <View style={styles.container}>
-            <Text style={styles.titulo}>Aca se puede buscar Imagenes</Text>
             <View style={styles.inputView}>
                 <TextInput placeholder="Ingresar Apellido" style={styles.inputText} placeholderTextColor="#003f5c" onChangeText={(text) => {onChangeText(text)}} value={text}></TextInput>
             </View>
-            <TouchableOpacity style={styles.submit}  >
+            <TouchableOpacity style={styles.submit} disabled={text==""?true:false}  >
                 <Text style={styles.sumbitText}>Buscar</Text>
           </TouchableOpacity>
-
         </View>
 
     );
@@ -53,23 +51,19 @@ const styles=StyleSheet.create({
         marginBottom:20,
         justifyContent:"center",
         padding:20,
-        top:"40%"
+        top:"20%"
       },
       inputText:{
         height:50,
         color:"white"
       },
-      titulo:{
-          top:"30%",
-          fontSize:14,
-          fontWeight:"900"
-      },
+
       sumbit:{
         alignItems:"center",
         justifyContent:"center",
         alignContent:'center',
         textAlign:'center',
-        top:"50%"
+        top:"30%"
 
       },
       sumbitText:{
@@ -81,7 +75,8 @@ const styles=StyleSheet.create({
         justifyContent:"center",
         textAlign:'center',
         textAlignVertical:'center',
-        top:300
-      }
+        top:"300%"
+      },
+
       
 })

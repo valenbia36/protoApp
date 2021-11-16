@@ -34,9 +34,9 @@ export function Home({route,navigation}) {
                 <Text style={styles.title}>Bienvenido {JSON.stringify(email)}</Text>
             </Animated.View>
             <View style={styles.containermisF}>
-                <TouchableOpacity title="Mis Fotos" onPress={()=>navigation.navigate("myPics")} style={styles.misF}>
+                {/*<TouchableOpacity title="Mis Fotos" onPress={()=>navigation.navigate("myPics")} style={styles.misF}>
                     <Text style={{fontWeight:'900',fontSize:14,}}>Subir o tomar foto</Text>
-                </TouchableOpacity>
+    </TouchableOpacity>*/}
                 <TouchableOpacity title="Buscar Familias" style={styles.buscar} onPress={()=>navigation.navigate("Search")} >
                     <Text style={{fontWeight:'900',fontSize:14,}}>Buscar Familias</Text>
                 </TouchableOpacity>
